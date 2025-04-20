@@ -1,64 +1,138 @@
-# 🍽️ Food Ordering Backend - PostgreSQL
+# 🍽️ The Digital Diner
 
-This project is a **Node.js + Express** backend for a full-stack food ordering platform. It uses **PostgreSQL** as the database and provides endpoints for storing user data and their orders. The frontend is deployed on **Netlify**.
+A full-stack restaurant ordering system prototype that allows users to browse the menu, add items to their cart, and place pickup orders online. Built with the **MERN stack**, this project is designed to demonstrate a clean, functional approach to managing restaurant operations without overwhelming complexity.
+
+**Frontend Live Demo:**  
+🔗 [https://digital-diner-kaushal.netlify.app/](https://digital-diner-kaushal.netlify.app/)
 
 ---
 
-## 🚀 Setup Instructions (Local Development)
+## 📌 Project Overview
 
-### ✅ Prerequisites
-- Node.js (v14+)
-- PostgreSQL installed and running
-- `npm` or `yarn` package manager
+**The Digital Diner** provides:
 
-### 🔧 Clone the Repository
+- A dynamic menu browsing experience
+- Cart management
+- Order placement with basic contact info
+- Order history lookup by phone number
+- Responsive UI using Tailwind CSS
 
-```bash
-git clone https://github.com/your-username/food-ordering-backend.git
-cd food-ordering-backend
-📦 Install Dependencies
-bash
-Copy
-Edit
+---
+
+## 🛠️ Tech Stack
+
+| Layer         | Technology                |
+|--------------|---------------------------|
+| Frontend     | React, Tailwind CSS       |
+| State Mgmt   |   Reducx toolkit          |
+| Backend      | Node.js, Express          |
+| Database     | MongoDB , PostgreSQL      |
+| Deployment   | Netlify (Frontend)        |
+               | Render (Backend,PostgreSQL)|
+
+---
+
+## 🧠 Why MongoDB over PostgreSQL?
+
+### ✅ Flexibility for Menu Data
+Menu items often contain semi-structured or optional fields such as:
+- `imageUrl`, `tags`, `description`, `customizations`, etc.
+
+MongoDB allows schema-less flexibility, making it ideal for dynamic and evolving menu structures without enforcing rigid rules.
+
+### ✅ Developer Speed & Simplicity
+MongoDB enables rapid development, especially in early-stage projects or prototypes. With Mongoose, validation and modeling become easier without setting up extensive schemas or dealing with complex joins.
+
+### ✅ Natural Fit for Orders
+Order objects contain arrays of items, total amount, and customer contact info. This structure is perfectly suited for MongoDB’s nested document model, which makes retrieval and storage more efficient without needing relational mapping.
+
+### ✅ Future-Ready for Scalability
+MongoDB scales horizontally and is a great fit for modern, high-speed web applications where read-heavy workloads (like fetching menus/orders) are common.
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🧪 Prerequisites
+
+- Node.js & npm
+- MongoDB installed locally or use MongoDB Atlas
+- Git
+
+---
+
+### 🔧 Backend Setup
+
+
+git clone https://github.com/kaushalkrsna1602/digital-diner-kaushal
+cd digital-diner-kausahl/backend
 npm install
-🛠️ Configure Environment Variables
-Create a .env file in the root and add:
 
-env
-Copy
-Edit
+Create .env file in /backend with:
 PORT=5000
-DATABASE_NAME=your_db_name
-DATABASE_USERNAME=your_pg_username
-DATABASE_PASSWORD=your_pg_password
-Ensure that the database is already created in PostgreSQL using createdb your_db_name or a GUI like pgAdmin.
+MONGO_URI="mongodb+srv://kaushalkrkr:9QVMeRTF45aPhdwK@cluster0.vuu6w.mongodb.net/digitalDiner?retryWrites=true&w=majority&appName=Cluster0"
 
-⚙️ Set Up the Database Tables
-You can either:
+Start Server : npm run dev
 
-Use raw SQL migrations provided in db/init.sql (if available), or
 
-The app will automatically create tables when run for the first time (if using code-first approach)
+### 🔧 Frontend Setup
 
-▶️ Start the Server
-bash
-Copy
-Edit
-npm start
-Backend will run at http://localhost:5000
+cd digital-diner-kaushal/frontend
+npm install
+npm run dev 
 
-🆚 Why PostgreSQL over MongoDB?
-✅ Chose PostgreSQL because:
-Orders and users follow relational data patterns — perfect for RDBMS.
+📦digital-diner-kaushal
+ ┣ 📂frontend           # React Frontend
+ ┃ ┣ 📂src
+ ┃   ┣ 📂components     # UI Components & Pages
+ ┃   ┣ 📂 store       # Cart Context & Config
+ ┃   ┗ App.jsx
+ ┃   ┣ 📂Slice
+ ┃  ┣ 📂 Services
+ ┃     ┣ 📂 Operations
+ ┃      ┣ apiCooonector.js
+ ┃      ┣ apis.js
+       
+       
+ ┣ 📂backend           # Express + MongoDB Backend
+ ┃   ┣ 📂controllers
+ ┃   ┣ 📂models         # Mongoose Schemas
+ ┃   ┣ 📂Database
+ ┃   ┣ 📂routes         # API Route Handlers
+ ┃   ┣ index.js        # Express App Entry Point
+ ┃   ┗ config.js        # DB Connection
+ ┣ README.md
 
-Supports ACID compliance for transactional safety.
 
-Stronger data integrity via foreign keys and structured schemas.
+Q:- ● Any assumptions made or challenges faced
 
-Easier to perform complex joins and reports for admin dashboards.
+One major challenge I faced was understanding PostgreSQL, as it was my first time using it in a project. Designing the schema according to the project requirements took some time. The biggest hurdle, however, was deploying the PostgreSQL database on Render and successfully fetching data from it.
 
-❌ Why not MongoDB?
-Although great for flexible documents, it’s less optimal for structured, relational scenarios like orders tied to users.
 
-Requires additional logic for referential integrity.
+📡 API Endpoints
 
+🗂️ Category Routes
+
+POST /createcategory — Create a new category
+
+GET /getallcategory — Retrieve all categories
+
+🍽️ Item Routes
+
+POST /createitem — Create a new item
+
+GET /items — Get all items
+
+GET /items/category/:categoryId — Get items by category ID
+
+🛒 Order Routes
+
+POST /orders — Create a new order
+
+GET /orders/:phone — Get orders by phone number
+
+Author : 
+
+Abhishek kumar
+
+Internship Assessment Submission for Eatoes
