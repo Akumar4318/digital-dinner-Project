@@ -3,7 +3,7 @@
 A full-stack restaurant ordering system prototype that allows users to browse the menu, add items to their cart, and place pickup orders online. Built with the **MERN stack**, this project is designed to demonstrate a clean, functional approach to managing restaurant operations without overwhelming complexity.
 
 **Frontend Live Demo:**  
-🔗 [https://digital-diner-kaushal.netlify.app/](https://digital-diner-kaushal.netlify.app/)
+🔗 [https://digitaldinnerstar.netlify.app/]
 
 ---
 
