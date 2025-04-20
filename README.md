@@ -107,8 +107,7 @@ npm run dev
 
 ### Q:- ● Any assumptions made or challenges faced
 
-💬 In my project, I used both PostgreSQL and MongoDB to explore their strengths and learn how to decide which fits best depending on the use case. It helped me gain real-world insight into choosing the right database technology. 🙌
-
+One of the biggest challenges I encountered during this project was working with PostgreSQL, as it was my first time using it in a real-world application. Designing the database schema to align with the project requirements took careful thought and planning. However, the most difficult part was deploying the PostgreSQL database on Render and ensuring seamless data retrieval from the hosted instance. It was a great learning experience that helped me gain hands-on exposure to database deployment and connectivity.
 
 📡 API Endpoints
 
