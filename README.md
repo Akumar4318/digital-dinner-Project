@@ -105,9 +105,9 @@ npm run dev
  ┣ README.md
 
 
-Q:- ● Any assumptions made or challenges faced
+### Q:- ● Any assumptions made or challenges faced
 
-One major challenge I faced was understanding PostgreSQL, as it was my first time using it in a project. Designing the schema according to the project requirements took some time. The biggest hurdle, however, was deploying the PostgreSQL database on Render and successfully fetching data from it.
+💬 In my project, I used both PostgreSQL and MongoDB to explore their strengths and learn how to decide which fits best depending on the use case. It helped me gain real-world insight into choosing the right database technology. 🙌
 
 
 📡 API Endpoints
